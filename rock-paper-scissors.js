@@ -54,12 +54,13 @@ Welcome to Rock Paper Scissors, The Odin Project game!
 
  /* BEGIN 2. PLAN (Comment outlining of everything needed)*/
 
+ /* Not needed as of now, so commenting out; delete if unneeded later.
  // Create a variable to store player's choice
 let playerSelection;
 
  // Create a variable to store computer's choice
  let computerChoice;
-
+*/
 
  // Create function computerPlay and use the stored random
  // value to determine rock, paper, or scissors.
@@ -67,10 +68,44 @@ let playerSelection;
  // of each new round so that the computer always has a 
  // different value (so game doesn't suck/isn't predictable every time)
  function computerPlay() {
-    let gameArray = ['Rock', 'Paper', 'Scissors'];
-    let randomGameArray = gameArray[(Math.random() * gameArray.length) | 0];
-    return randomGameArray;
+    const gameArray = ['Rock', 'Paper', 'Scissors'];
+    const random = Math.floor(Math.random() * gameArray.length);
+    return gameArray[random];
  }
+
+ // Create function playerSelection and use the player's entered
+ // value of either rock, paper, or scissors. Reject all other entries.
+ // Alow the entry of 1 for rock, 2 for paper, and 3 for scissors
+ // Create a variable/subfunction that removes the need to have case
+ // sensitive typing of rock, paper, or scissors (i.e., a function
+ // that will take the player's input and turn it into all lowercase
+ // and that is what the main function will be checking against 
+ // for the true/false statements)
+ // Ensure that this function is repeated at the end/start
+ // of each new round
+
+ // Just a comment of joy, this thing works :) 
+ // Most complicated thing I've ever built yet, haha and it works!
+function playerSelection() {
+   console.log ("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
+   let playerChoice = prompt("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
+   if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
+      playerChoice = "Rock";
+   } else if (playerChoice.toLowerCase() === "paper" || parseInt(playerChoice) === 2) {
+      playerChoice = "Paper";
+   }
+   else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
+      playerChoice = "Scissors";
+   }
+   else if (playerChoice.toLowerCase() !== "rock" || "scissors" || "paper" || parseInt(playerChoice) !== 1 || 2 || 3) {
+      alert("Please try to enter your value again :)")
+      playerSelection();
+   }
+   else {
+      console.log("Not sure what's going on, hold on to yer butts ;)")
+   }
+   return playerChoice;
+}
 
 
 
