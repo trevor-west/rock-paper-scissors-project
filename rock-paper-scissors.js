@@ -66,13 +66,26 @@ let playerSelection;
  // Ensure that this function is repeated at the end/start
  // of each new round so that the computer always has a 
  // different value (so game doesn't suck/isn't predictable every time)
+ function computerPlay() {
+
+ }
 
 
  // Create a function to randomly generate a random value
- 
+ function randomValue(x) {
+    return Math.floor(Math.random() * 100) + 1;
+ }
 
  // Create variables to associate the same numerial value
  // ranges with rock, paper, scissors (in such a way as to equal 1/3)
+let rock = 0-32;
+let paper = 33-66;
+let scissors = 67-100;
+
+//Or perhaps a simple loop can do what won't work above, because
+// you cannot define a range of numbers without an array it seems...
+// So: make a loop that returns rock for 0-32, paper for 33-66, and
+// scissors for 67-100
 
 
  // Create an if loop to determine if player of computer wins
