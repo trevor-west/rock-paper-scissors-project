@@ -54,13 +54,12 @@ Welcome to Rock Paper Scissors, The Odin Project game!
 
  /* BEGIN 2. PLAN (Comment outlining of everything needed)*/
 
- /* Not needed as of now, so commenting out; delete if unneeded later.
+
  // Create a variable to store player's choice
-let playerSelection;
+ const playerSelection = playerPlay();
 
  // Create a variable to store computer's choice
- let computerChoice;
-*/
+const computerSelection = computerPlay();
 
  // Create function computerPlay and use the stored random
  // value to determine rock, paper, or scissors.
@@ -143,17 +142,9 @@ function playRound(playerSelection, computerSelection) {
    }
 }
 
-const computerSelection = computerPlay();
-const playerSelection = playerPlay();
+
+// Print results of game round
 console.log(playRound(playerSelection, computerSelection));
-
-
- // Create an if loop to determine if player of computer wins
-
- // Print out a "Yay~! You won!" message (part of loop)
-
- // Print out a "Oh no! You lost to the computer :(" message
- // (part if loop)
 
 
 
