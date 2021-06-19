@@ -86,7 +86,7 @@ let playerSelection;
 
  // Just a comment of joy, this thing works :) 
  // Most complicated thing I've ever built yet, haha and it works!
-function playerSelection() {
+function playerPlay() {
    console.log ("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
    let playerChoice = prompt("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
    if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
@@ -107,6 +107,45 @@ function playerSelection() {
    return playerChoice;
 }
 
+
+/* Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and 
+computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" */
+
+
+/* Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports 
+a winner or loser at the end. */
+
+
+function playRound(playerSelection, computerSelection) {
+   if (computerSelection === playerSelection) {
+      console.log("It's a draw!");
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+   } else if (computerSelection === "Rock" && playerSelection === "Scissors") {
+      console.log("Rock beats scissors! You lose :(");
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+   } else if (computerSelection === "Scissors" && playerSelection === "Rock") {
+      console.log("Rock beats scissors! You win :D");
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+   } else if (computerSelection === "Scissors" && playerSelection === "Paper") {
+      console.log("Scissors beats paper! You lose :(");
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+   } else if (computerSelection === "Paper" && playerSelection === "Scissors") {
+      console.log("Scissors beats paper! You win :D");
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+   } else if (computerSelection === "Paper" && playerSelection === "Rock") {
+      console.log("Paper beats rock! You lose :(");
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+   } else if (computerSelection === "Rock" && playerSelection === "Paper") {
+      console.log("Paper beats rock! You win :D");
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+   } else {
+      console.log("I'm not sure what, but something went worng :(");
+   }
+}
+
+const computerSelection = computerPlay();
+const playerSelection = playerPlay();
+console.log(playRound(playerSelection, computerSelection));
 
 
  // Create an if loop to determine if player of computer wins
