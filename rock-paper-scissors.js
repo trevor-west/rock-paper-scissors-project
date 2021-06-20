@@ -59,7 +59,7 @@ Welcome to Rock Paper Scissors, The Odin Project game!
  const playerSelection = playerPlay();
 
  // Create a variable to store computer's choice
-const computerSelection = computerPlay();
+ const computerSelection = computerPlay();
 
  // Create function computerPlay and use the stored random
  // value to determine rock, paper, or scissors.
@@ -110,31 +110,26 @@ function playerPlay() {
 /* Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and 
 computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" */
 
-
-/* Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports 
-a winner or loser at the end. */
-
-
 function playRound(playerSelection, computerSelection) {
-   if (computerSelection === playerSelection) {
+   if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
       console.log("It's a draw!");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
-   } else if (computerSelection === "Rock" && playerSelection === "Scissors") {
+   } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
       console.log("Rock beats scissors! You lose :(");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
-   } else if (computerSelection === "Scissors" && playerSelection === "Rock") {
+   } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
       console.log("Rock beats scissors! You win :D");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
-   } else if (computerSelection === "Scissors" && playerSelection === "Paper") {
+   } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
       console.log("Scissors beats paper! You lose :(");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
-   } else if (computerSelection === "Paper" && playerSelection === "Scissors") {
+   } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
       console.log("Scissors beats paper! You win :D");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
-   } else if (computerSelection === "Paper" && playerSelection === "Rock") {
+   } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
       console.log("Paper beats rock! You lose :(");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
-   } else if (computerSelection === "Rock" && playerSelection === "Paper") {
+   } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
       console.log("Paper beats rock! You win :D");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
    } else {
@@ -142,10 +137,29 @@ function playRound(playerSelection, computerSelection) {
    }
 }
 
+/* Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports 
+a winner or loser at the end. */
+
+/*
+function game() {
+   for (let rounds = 0; rounds < 5; rounds++) {
+      playRound(playerSelection, computerSelection);
+   }
+}
+*/
+// Define function / rule for winning and keeping track of score and determining winner for 5 rounds of game
+// Make each round reset the computer choice and get new input from the player.
+
+function game() {
+   playRound(playerSelection, computerSelection);
+   playRound(playerSelection, computerSelection);
+   playRound(playerSelection, computerSelection);
+   playRound(playerSelection, computerSelection);
+   playRound(playerSelection, computerSelection);
+}
 
 // Print results of game round
-console.log(playRound(playerSelection, computerSelection));
-
+console.log(game(playerSelection, computerSelection));
 
 
 
