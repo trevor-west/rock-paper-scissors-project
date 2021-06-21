@@ -151,12 +151,18 @@ function game() {
 // Make each round reset the computer choice and get new input from the player.
 
 function game() {
-   playRound(playerSelection, computerSelection);
-   playRound(playerSelection, computerSelection);
-   playRound(playerSelection, computerSelection);
-   playRound(playerSelection, computerSelection);
-   playRound(playerSelection, computerSelection);
+   roundOne;
+   roundTwo;
+   roundThree;
+   roundFour;
+   roundFive;
 }
+
+const roundOne = playRound(playerSelection, computerSelection);
+const roundTwo = playRound(playerSelection, computerSelection);
+const roundThree = playRound(playerSelection, computerSelection);
+const roundFour = playRound(playerSelection, computerSelection);
+const roundFive = playRound(playerSelection, computerSelection);
 
 // Print results of game round
 console.log(game(playerSelection, computerSelection));
