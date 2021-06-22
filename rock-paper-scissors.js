@@ -55,12 +55,6 @@ Welcome to Rock Paper Scissors, The Odin Project game!
  /* BEGIN 2. PLAN (Comment outlining of everything needed)*/
 
 
- // Create a variable to store player's choice
- const playerSelection = playerPlay();
-
- // Create a variable to store computer's choice
- const computerSelection = computerPlay();
-
  // Create function computerPlay and use the stored random
  // value to determine rock, paper, or scissors.
  // Ensure that this function is repeated at the end/start
@@ -96,7 +90,9 @@ function playerPlay() {
    else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
       playerChoice = "Scissors";
    }
-   else if (playerChoice.toLowerCase() !== "rock" || "scissors" || "paper" || parseInt(playerChoice) !== 1 || 2 || 3) {
+   else if (playerChoice.toLowerCase() !== "rock" || playerChoice.toLowerCase() !== "scissors" || 
+         playerChoice.toLowerCase() !== "paper" || parseInt(playerChoice) !== 1 || 
+         parseInt(playerChoice) !== 2 || parseInt(playerChoice) !== 3) {
       alert("Please try to enter your value again :)")
       playerSelection();
    }
@@ -133,7 +129,7 @@ function playRound(playerSelection, computerSelection) {
       console.log("Paper beats rock! You win :D");
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
    } else {
-      console.log("I'm not sure what, but something went worng :(");
+      console.log("I'm not sure what, but something went wrong :(");
    }
 }
 
@@ -151,21 +147,51 @@ function game() {
 // Make each round reset the computer choice and get new input from the player.
 
 function game() {
-   roundOne;
-   roundTwo;
-   roundThree;
-   roundFour;
-   roundFive;
+ for (let i = 0; i < 5; i++) {
+    const playerSelection = playerPlay();
+    const computerSelection = computerPlay();
+    const roundResults = printRoundResults(playerSelection, computerSelection);
+    const currentRound = playRound(playerSelection, computerSelection);
+    console.log(currentRound);
+    console.log(roundResults);
+ }
+
 }
 
-const roundOne = playRound(playerSelection, computerSelection);
-const roundTwo = playRound(playerSelection, computerSelection);
-const roundThree = playRound(playerSelection, computerSelection);
-const roundFour = playRound(playerSelection, computerSelection);
-const roundFive = playRound(playerSelection, computerSelection);
+// Make a function that saves who won the given round and return that value and print
 
-// Print results of game round
-console.log(game(playerSelection, computerSelection));
-
-
-
+function printRoundResults(playerSelection, computerSelection) {
+   let playerScore = 0;
+   let computerScore = 0;
+   if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
+      playerScore;
+      computerScore;
+      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
+   } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
+      playerScore =+ playerScore; 
+      computerScore =+ computerScore++;
+      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
+   } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
+      playerScore =+ playerScore++;
+      computerScore =+ computerScore;
+      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
+   } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
+      playerScore =+ playerScore;
+      computerScore =+ computerScore++;
+      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
+   } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
+      playerScore =+ playerScore++;
+      computerScore =+ computerScore;
+      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
+   } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
+      playerScore =+ playerScore;
+      computerScore =+ computerScore++;
+      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
+   } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
+      playerScore =+ playerScore++;
+      computerScore =+ computerScore;
+      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
+   } else {
+      console.log("I'm not sure what, but something went wrong :(");
+   }
+}
