@@ -109,29 +109,54 @@ computerSelection - and then return a string that declares the winner of the rou
 function playRound(playerSelection, computerSelection) {
    if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
       console.log("It's a draw!");
-      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+      playerScore;
+      computerScore;
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
+      + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
       console.log("Rock beats scissors! You lose :(");
-      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+      playerScore;
+      computerScore = computerScore + 1;
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection 
+      + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
       console.log("Rock beats scissors! You win :D");
-      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+      playerScore = playerScore + 1;
+      computerScore;
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection 
+      + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
       console.log("Scissors beats paper! You lose :(");
-      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+      playerScore;
+      computerScore = computerScore + 1;
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection 
+      + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
       console.log("Scissors beats paper! You win :D");
-      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+      playerScore = playerScore + 1;
+      computerScore;
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection 
+      + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
       console.log("Paper beats rock! You lose :(");
-      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+      playerScore;
+      computerScore = computerScore + 1;
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection 
+      + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
       console.log("Paper beats rock! You win :D");
-      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection);
+      playerScore = playerScore + 1;
+      computerScore;
+      return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection 
+      + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else {
       console.log("I'm not sure what, but something went wrong :(");
    }
 }
+
+// Make global values playerScore and computerScore that survive each new round (i.e., not erased but saved globally)
+let playerScore = 0;
+let computerScore = 0;
 
 /* Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports 
 a winner or loser at the end. */
@@ -150,48 +175,10 @@ function game() {
  for (let i = 0; i < 5; i++) {
     const playerSelection = playerPlay();
     const computerSelection = computerPlay();
-    const roundResults = printRoundResults(playerSelection, computerSelection);
     const currentRound = playRound(playerSelection, computerSelection);
     console.log(currentRound);
-    console.log(roundResults);
  }
-
-}
-
-// Make a function that saves who won the given round and return that value and print
-
-function printRoundResults(playerSelection, computerSelection) {
-   let playerScore = 0;
-   let computerScore = 0;
-   if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
-      playerScore;
-      computerScore;
-      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
-   } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
-      playerScore =+ playerScore; 
-      computerScore =+ computerScore++;
-      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
-   } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
-      playerScore =+ playerScore++;
-      computerScore =+ computerScore;
-      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
-   } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
-      playerScore =+ playerScore;
-      computerScore =+ computerScore++;
-      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
-   } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
-      playerScore =+ playerScore++;
-      computerScore =+ computerScore;
-      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
-   } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
-      playerScore =+ playerScore;
-      computerScore =+ computerScore++;
-      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
-   } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
-      playerScore =+ playerScore++;
-      computerScore =+ computerScore;
-      return("Your score: " + playerScore + ". " + "Computer's score: " + computerScore);
-   } else {
-      console.log("I'm not sure what, but something went wrong :(");
-   }
+// Reset playerScore and computerScore back to zero at end of 5 rounds / one game set
+playerScore = 0;
+computerScore = 0;
 }
