@@ -77,8 +77,6 @@ Welcome to Rock Paper Scissors, The Odin Project game!
  // Ensure that this function is repeated at the end/start
  // of each new round
 
- // Just a comment of joy, this thing works :) 
- // Most complicated thing I've ever built yet, haha and it works!
 function playerPlay() {
    console.log ("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
    let playerChoice = prompt("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
@@ -158,16 +156,7 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 
-/* Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports 
-a winner or loser at the end. */
 
-/*
-function game() {
-   for (let rounds = 0; rounds < 5; rounds++) {
-      playRound(playerSelection, computerSelection);
-   }
-}
-*/
 // Define function / rule for winning and keeping track of score and determining winner for 5 rounds of game
 // Make each round reset the computer choice and get new input from the player.
 
