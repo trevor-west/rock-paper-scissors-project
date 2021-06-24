@@ -171,6 +171,7 @@ function game() {
 // Define function / rule for winning and keeping track of score and determining winner for 5 rounds of game
 // Make each round reset the computer choice and get new input from the player.
 
+
 function game() {
  for (let i = 0; i < 5; i++) {
     const playerSelection = playerPlay();
@@ -178,6 +179,16 @@ function game() {
     const currentRound = playRound(playerSelection, computerSelection);
     console.log(currentRound);
  }
+// Prints win or lose message based on final score after running 5 rounds of game
+ if (playerScore > computerScore) {
+   console.log("Congratulations! You won the game! :)");
+} else if (computerScore > playerScore) {
+   console.log("The computer won... you lose the game :(");
+} else if (computerScore === playerScore) {
+   console.log("Tie game! :o");
+} else {
+   console.log("An unforeseen error has occurred, please do 15 pushups and do 5 deep breaths, then reload the program.");
+}
 // Reset playerScore and computerScore back to zero at end of 5 rounds / one game set
 playerScore = 0;
 computerScore = 0;
