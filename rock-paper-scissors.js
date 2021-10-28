@@ -77,78 +77,88 @@ Welcome to Rock Paper Scissors, The Odin Project game!
  // Ensure that this function is repeated at the end/start
  // of each new round
 
-function playerPlay() {
-   console.log ("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
-   let playerChoice = prompt("Do you choose 'Rock' (1), 'Paper' (2), or 'Scissors' (3)?");
-   if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
-      playerChoice = "Rock";
-   } else if (playerChoice.toLowerCase() === "paper" || parseInt(playerChoice) === 2) {
-      playerChoice = "Paper";
-   }
-   else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
-      playerChoice = "Scissors";
-   }
-   else if (playerChoice.toLowerCase() !== "rock" || playerChoice.toLowerCase() !== "scissors" ||
-         playerChoice.toLowerCase() !== "paper" || parseInt(playerChoice) !== 1 ||
-         parseInt(playerChoice) !== 2 || parseInt(playerChoice) !== 3) {
-      alert("Please try to enter your value again :)")
-      playerSelection();
-   }
-   else {
-      console.log("Not sure what's going on, hold on to yer butts ;)")
-   }
-   return playerChoice;
-}
+ let playerSelection = "";
+ let computerSelection = "";
 
+
+function playerPlay() {
+   // put buttons into a node list and loop, take clicked button to return playerChoice value
+   const buttons = document.querySelectorAll('button.gameButton');
+   buttons.forEach((button) => {
+     button.addEventListener('click', () => {
+       playerSelection = button.id;
+       const playerChoicePar = document.createElement('p');
+       playerChoicePar.textContent = "Player Choice: " + playerSelection[0].toUpperCase() + playerSelection.substring(1);
+       results.appendChild(playerChoicePar);
+       return playerSelection;
+      });
+    });
+}
 
 /* Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and
 computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" */
 
 function playRound(playerSelection, computerSelection) {
    if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
-      console.log("It's a draw!");
+      const drawPar = document.createElement('p');
+      drawPar.textContent = "It's a draw!";
+      results.appendChild(drawPar);
       playerScore;
       computerScore;
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
-      console.log("Rock beats scissors! You lose :(");
+      const scissorsLose = document.createElement('p');
+      scissorsLose.textContent = "Rock beats scissors! You lose :(";
+      results.appendChild(scissorsLose);
       playerScore;
       computerScore = computerScore + 1;
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
-      console.log("Rock beats scissors! You win :D");
+      const rockWin = document.createElement('p');
+      rockWin.textContent = "Rock beats scissors! You win :D";
+      results.appendChild(rockWin);
       playerScore = playerScore + 1;
       computerScore;
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
-      console.log("Scissors beats paper! You lose :(");
+      const paperLose = document.createElement('p');
+      paperLose.textContent = "Scissors beats paper! You lose :(";
+      results.appendChild(paperLose);
       playerScore;
       computerScore = computerScore + 1;
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
-      console.log("Scissors beats paper! You win :D");
+      const scissorsWin = document.createElement('p');
+      scissorsWin.textContent = "Scissors beats paper! You win :D";
+      results.appendChild(scissorsWin);
       playerScore = playerScore + 1;
       computerScore;
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
-      console.log("Paper beats rock! You lose :(");
+      const rockLose = document.createElement('p');
+      rockLose.textContent = "Paper beats rock! You lose :(";
+      results.appendChild(rockLose);
       playerScore;
       computerScore = computerScore + 1;
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
-      console.log("Paper beats rock! You win :D");
+      const paperWin = document.createElement('p');
+      paperWin.textContent = "Paper beats rock! You win :D";
+      results.appendChild(paperWin);
       playerScore = playerScore + 1;
       computerScore;
       return("Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore);
    } else {
-      console.log("I'm not sure what, but something went wrong :(");
+      const unknownPar = document.createElement('p');
+      unknownPar.textContent = "I'm not sure what, but something went wrong :(";
+      results.appendChild(unknownPar);
    }
 }
 
@@ -160,56 +170,55 @@ let computerScore = 0;
 // Define function / rule for winning and keeping track of score and determining winner for 5 rounds of game
 // Make each round reset the computer choice and get new input from the player.
 
-/*
-function game() {
- for (let i = 0; i < 5; i++) {
+
+const newGame = document.querySelector('#start');
+newGame.addEventListener('click', () => {
+  const startPar = document.createElement('p');
+  startPar.textContent = "Do you choose Rock, Paper, or Scissors?";
+  results.appendChild(startPar);
+  for (let i = 0; i < 5; i++) {
     const playerSelection = playerPlay();
     const computerSelection = computerPlay();
     const currentRound = playRound(playerSelection, computerSelection);
-    console.log(currentRound);
- }
-*/
+    const currentRoundPrint = document.createElement('p');
+    currentRoundPrint.textContent = currentRound;
+    results.appendChild(currentRoundPrint);
+   }
 
-let playerSelection = "";
-let computerSelection = "";
+   // Prints win or lose message based on final score after running 5 rounds of game
+    if (playerScore > computerScore) {
+       const youWon = document.createElement('p');
+       youWon.textContent = "Congratulations! You won the game! :)";
+       results.appendChild(youWon);
+   } else if (computerScore > playerScore) {
+       const youLost = document.createElement('p');
+       youLost.textContent = "The computer won... you lose the game :(";
+       results.appendChild(youLost);
+   } else if (computerScore === playerScore) {
+       const tieGame = document.createElement('p');
+       tieGame.textContent = "Tie game! :o";
+       results.appendChild(tieGame);
+   } else {
+       const errorPar = document.createElement('p');
+       errorPar.textContent = "An unforeseen error has occurred, please do 15 pushups and do 5 deep breaths, then reload the program.";
+       results.appendChild(errorPar);
+   }
+  });
 
 const results = document.querySelector('div.results');
 
 
 // define rock and listens for rock button click then saves rock value to playerSelection
 const rock = document.querySelector('#rock');
-rock.addEventListener('click', () => {
-  playerSelection = "rock";
-  const rockPar = document.createElement('p');
-  rockPar.textContent = "Player Choice: rock";
-  results.appendChild(rockPar);
-});
+
 
 // define rock and listens for rock button click then saves rock value to playerSelection
 const paper = document.querySelector('#paper');
-paper.addEventListener('click', () => {
-  playerSelection = "paper";
-  console.log(playerSelection);
-});
+
 
 // define rock and listens for rock button click then saves rock value to playerSelection
 const scissors = document.querySelector('#scissors');
-scissors.addEventListener('click', () => {
-  playerSelection = "scissors";
-  console.log(playerSelection);
-});
 
-
-// Prints win or lose message based on final score after running 5 rounds of game
- if (playerScore > computerScore) {
-   console.log("Congratulations! You won the game! :)");
-} else if (computerScore > playerScore) {
-   console.log("The computer won... you lose the game :(");
-} else if (computerScore === playerScore) {
-   console.log("Tie game! :o");
-} else {
-   console.log("An unforeseen error has occurred, please do 15 pushups and do 5 deep breaths, then reload the program.");
-}
 // Reset playerScore and computerScore back to zero at end of 5 rounds / one game set
 playerScore = 0;
 computerScore = 0;
