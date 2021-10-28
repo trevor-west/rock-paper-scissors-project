@@ -173,11 +173,16 @@ function game() {
 let playerSelection = "";
 let computerSelection = "";
 
+const results = document.querySelector('div.results');
+
+
 // define rock and listens for rock button click then saves rock value to playerSelection
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
   playerSelection = "rock";
-  console.log(playerSelection);
+  const rockPar = document.createElement('p');
+  rockPar.textContent = "Player Choice: rock";
+  results.appendChild(rockPar);
 });
 
 // define rock and listens for rock button click then saves rock value to playerSelection
@@ -193,17 +198,6 @@ scissors.addEventListener('click', () => {
   playerSelection = "scissors";
   console.log(playerSelection);
 });
-
-
-/*
-document.getElementById('paper').addEventListener('click', function(e){
-
-});
-document.getElementById('scissors').addEventListener('click', function(e){
-
-});
-*/
-
 
 
 // Prints win or lose message based on final score after running 5 rounds of game
