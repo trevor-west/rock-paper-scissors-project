@@ -60,11 +60,7 @@ Welcome to Rock Paper Scissors, The Odin Project game!
  // Ensure that this function is repeated at the end/start
  // of each new round so that the computer always has a
  // different value (so game doesn't suck/isn't predictable every time)
- function computerPlay() {
-    const gameArray = ['Rock', 'Paper', 'Scissors'];
-    const random = Math.floor(Math.random() * gameArray.length);
-    return gameArray[random];
- }
+
 
  // Create function playerSelection and use the player's entered
  // value of either rock, paper, or scissors. Reject all other entries.
@@ -77,10 +73,37 @@ Welcome to Rock Paper Scissors, The Odin Project game!
  // Ensure that this function is repeated at the end/start
  // of each new round
 
- let playerSelection = "";
- let computerSelection = "";
+
+/*
+// deactivated code because it was causing start to always be a draw
+let playerSelection = "";
+let computerSelection = "";
+*/
 
 
+// function to call playRound function with correct playerSelection on button click
+/*
+Create three buttons, one for each selection. Add an event listener to the buttons
+that calls your playRound function with the correct playerSelection every time a
+button is clicked. (you can keep the console.logs for this step)
+*/
+
+function myFunction(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
+
+function buttonPlay() {
+    const rockButton = document.querySelector('#rock');
+    const paperButton = document.querySelector('#paper');
+    const scissorsButton = document.querySelector('#scissors');
+
+    rockButton.addEventListener('click', () => {
+      playRound(playerSelection) = 'rock';
+  });
+}
+
+
+/*
 function playerPlay() {
 
   // put buttons into a node list and loop, take clicked button to return playerChoice value
@@ -96,7 +119,7 @@ function playerPlay() {
     });
   });
 }
-
+*/
 
 // Make global values playerScore and computerScore that survive each new round (i.e., not erased but saved globally)
 let playerScore = 0;
@@ -108,8 +131,10 @@ let computerScore = 0;
 
 const startPar = document.createElement('p');
 
+/*
 const newGame = document.querySelector('#start');
 newGame.addEventListener('click', () => {
+  // if div.results has any children, reset/delete them, else if run:
   if (startPar.textContent === "Do you choose Rock, Paper, or Scissors?") return;
   else {
     startPar.textContent = "Do you choose Rock, Paper, or Scissors?";
@@ -123,7 +148,7 @@ newGame.addEventListener('click', () => {
       results.appendChild(currentRoundPrint);
    }
   }
-
+*/
 
   /* Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and
   computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" */
@@ -139,7 +164,7 @@ function checkPlayerSelection() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  if (checkPlayerSelection() === true) {
+  /*if (checkPlayerSelection() === true) { */
     if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
       const drawPar = document.createElement('p');
       drawPar.textContent = "It's a draw!";
@@ -209,7 +234,7 @@ function playRound(playerSelection, computerSelection) {
       results.appendChild(unknownPar);
    }
   }
-}
+//}
 
 
 /*
@@ -222,6 +247,8 @@ into New Game button when pressed
     document.getElementsByClassName('results').reset();
   });
 */
+
+/*
    // Prints win or lose message based on final score after running 5 rounds of game
     if (playerScore > computerScore) {
        const youWon = document.createElement('p');
@@ -241,6 +268,7 @@ into New Game button when pressed
        results.appendChild(errorPar);
    }
   });
+*/
 
 const results = document.querySelector('div.results');
 
