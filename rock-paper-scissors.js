@@ -40,8 +40,6 @@ button is clicked. (you can keep the console.logs for this step)
 */
 
 
-
-
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
 const scissorsButton = document.querySelector('#scissors');
