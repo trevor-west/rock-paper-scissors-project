@@ -71,11 +71,7 @@ const startPar = document.createElement('p');
 
 function playRound(playerSelection, computerSelection) {
   computerSelection = computerPlay();
-  if (playerScore >= 5) {
-    winScore();
-  } else if (computerScore >= 5) {
-    loseScore();
-  } else if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
+  if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
       const drawPar = document.createElement('p');
       drawPar.textContent = "It's a draw!";
       results.appendChild(drawPar);
@@ -84,6 +80,11 @@ function playRound(playerSelection, computerSelection) {
       scorePar.textContent = "Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore;
       results.appendChild(scorePar);
+      if (playerScore >= 5) {
+        winScore();
+      } else if (computerScore >= 5) {
+        loseScore();
+      }
       } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
       const scissorsLose = document.createElement('p');
       scissorsLose.textContent = "Rock beats scissors! You lose :(";
@@ -93,6 +94,11 @@ function playRound(playerSelection, computerSelection) {
       scorePar.textContent = "Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore;
       results.appendChild(scorePar);
+      if (playerScore >= 5) {
+        winScore();
+      } else if (computerScore >= 5) {
+        loseScore();
+      }
     } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
       const rockWin = document.createElement('p');
       rockWin.textContent = "Rock beats scissors! You win :D";
@@ -102,6 +108,11 @@ function playRound(playerSelection, computerSelection) {
       scorePar.textContent = "Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore;
       results.appendChild(scorePar);
+      if (playerScore >= 5) {
+        winScore();
+      } else if (computerScore >= 5) {
+        loseScore();
+      }
     } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
       const paperLose = document.createElement('p');
       paperLose.textContent = "Scissors beats paper! You lose :(";
@@ -111,6 +122,11 @@ function playRound(playerSelection, computerSelection) {
       scorePar.textContent = "Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore;
       results.appendChild(scorePar);
+      if (playerScore >= 5) {
+        winScore();
+      } else if (computerScore >= 5) {
+        loseScore();
+      }
     } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
       const scissorsWin = document.createElement('p');
       scissorsWin.textContent = "Scissors beats paper! You win :D";
@@ -120,6 +136,11 @@ function playRound(playerSelection, computerSelection) {
       scorePar.textContent = "Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore;
       results.appendChild(scorePar);
+      if (playerScore >= 5) {
+        winScore();
+      } else if (computerScore >= 5) {
+        loseScore();
+      }
     } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
       const rockLose = document.createElement('p');
       rockLose.textContent = "Paper beats rock! You lose :(";
@@ -129,6 +150,11 @@ function playRound(playerSelection, computerSelection) {
       scorePar.textContent = "Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore;
       results.appendChild(scorePar);
+      if (playerScore >= 5) {
+        winScore();
+      } else if (computerScore >= 5) {
+        loseScore();
+      }
     } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
       const paperWin = document.createElement('p');
       paperWin.textContent = "Paper beats rock! You win :D";
@@ -138,6 +164,11 @@ function playRound(playerSelection, computerSelection) {
       scorePar.textContent = "Your Choice: " + playerSelection + ". " + "Computer: " + computerSelection
       + ". " + "Your Score: " + playerScore + ". " + "Computer Score: " + computerScore;
       results.appendChild(scorePar);
+      if (playerScore >= 5) {
+        winScore();
+      } else if (computerScore >= 5) {
+        loseScore();
+      } 
     } else {
       const unknownPar = document.createElement('p');
       unknownPar.textContent = "I'm not sure what, but something went wrong :(";
