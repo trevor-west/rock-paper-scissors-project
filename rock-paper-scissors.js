@@ -30,7 +30,11 @@ const scorePar = document.createElement('p');
 
 // Reset button which clears/resets the game, for now just resets score to 0
 
+const resetButton = document.querySelector('button#reset');
 
+resetButton.addEventListener('click', () => {
+  window.location.reload();
+});
 
 // function to call playRound function with correct playerSelection on button click
 /*
@@ -168,7 +172,7 @@ function playRound(playerSelection, computerSelection) {
         winScore();
       } else if (computerScore >= 5) {
         loseScore();
-      } 
+      }
     } else {
       const unknownPar = document.createElement('p');
       unknownPar.textContent = "I'm not sure what, but something went wrong :(";
